@@ -1,0 +1,31 @@
+.define {
+  padding: clamp(70px, 10vw, 140px) var(--gutter) clamp(80px, 10vw, 150px);
+}
+
+.define h2 {
+  font-size: clamp(110px, 12vw, 180px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+}
+
+.phon {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.lead {
+  max-width: 620px;
+  margin-top: clamp(28px, 4vw, 48px);
+  font-size: clamp(15px, 1.2vw, 18px);
+}
+
+@media (max-width: 767px) {
+  .phon {
+    font-size: 15px;
+  }
+  .lead {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+}

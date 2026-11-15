@@ -1,0 +1,48 @@
+.masonry {
+  columns: 3;
+  column-gap: clamp(8px, 1vw, 16px);
+  padding: clamp(24px, 3vw, 44px) var(--gutter) clamp(48px, 6vw, 90px);
+  background: var(--ink);
+}
+
+.item {
+  display: block;
+  width: 100%;
+  margin-bottom: clamp(8px, 1vw, 16px);
+  overflow: hidden;
+  border-radius: 4px;
+  background: #111;
+  break-inside: avoid;
+  cursor: zoom-in;
+}
+
+.img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    transform 1.2s var(--ease),
+    filter 0.5s;
+}
+
+.item:hover .img {
+  transform: scale(1.03);
+  filter: brightness(0.85);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+@media (max-width: 991px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (max-width: 479px) {
+  .masonry {
+    columns: 1;
+  }
+}

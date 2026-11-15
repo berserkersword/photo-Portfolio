@@ -1,0 +1,92 @@
+.footer {
+  padding: clamp(60px, 8vw, 110px) var(--gutter) 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.logo {
+  font-size: clamp(28px, 2.4vw, 36px);
+}
+
+.contact {
+  margin-top: clamp(40px, 4vw, 56px);
+}
+
+.contact h4 {
+  font-size: clamp(28px, 2.4vw, 36px);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.contact a {
+  display: block;
+  width: fit-content;
+  margin-bottom: 8px;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.col h5 {
+  margin-bottom: 24px;
+}
+
+.col ul {
+  list-style: none;
+  font-size: 12px;
+  line-height: 2.6;
+}
+
+.col a:hover {
+  color: var(--sage-dark);
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials svg {
+  width: 26px;
+  height: 26px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(60px, 7vw, 100px);
+  padding-top: 28px;
+  border-top: 1px solid var(--olive);
+  font-size: 11px;
+}
+
+.bottom div {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* Original: telefonda logo + kontakt tepada, Navigation va Socials yonma-yon */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 48px;
+  }
+  .brand {
+    grid-column: 1 / -1;
+  }
+  .contact a,
+  .col ul {
+    font-size: 15px;
+  }
+  .bottom {
+    flex-direction: column;
+    font-size: 13px;
+  }
+}

@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: clamp(130px, 14vw, 190px) var(--gutter) clamp(28px, 3vw, 44px);
+  border-bottom: 1px solid rgba(252, 246, 235, 0.2);
+  background: var(--ink);
+  color: var(--cream-light);
+}
+
+.titleRow h1 {
+  font-size: clamp(96px, 12vw, 180px);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+}
+
+.lead {
+  max-width: 440px;
+  margin-top: clamp(18px, 2vw, 28px);
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.tabs a {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 0.7em 1.5em;
+  border: 1px solid rgba(252, 246, 235, 0.45);
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.tabs a:hover {
+  border-color: var(--cream-light);
+}
+
+.tabs sup {
+  font-size: 9px;
+  opacity: 0.6;
+}
+
+.tabs .on {
+  background: var(--cream-light);
+  border-color: var(--cream-light);
+  color: var(--ink);
+}
+
+@media (max-width: 767px) {
+  .tabs {
+    width: 100%;
+  }
+  .tabs a {
+    flex: 1;
+    justify-content: center;
+    font-size: 14px;
+  }
+  .lead {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,114 @@
+.hero {
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  padding: var(--gutter);
+}
+
+.frame {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--olive);
+  color: var(--cream-light);
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Preloader yo'qolgach matn birin-ketin chiqadi (faqat CSS — hydration'ga tegmaydi) */
+.in {
+  animation: heroIn 1s var(--ease) both;
+}
+
+.copy .in:nth-child(1) {
+  animation-delay: 1s;
+}
+
+.copy .in:nth-child(2) {
+  animation-delay: 1.12s;
+}
+
+.copy .in:nth-child(3) {
+  animation-delay: 1.24s;
+}
+
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in {
+    animation: none;
+  }
+}
+
+.frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* tepada — menyu o'qilishi uchun, chapda — sarlavha uchun */
+  background:
+    linear-gradient(180deg, rgba(20, 24, 15, 0.5) 0%, rgba(20, 24, 15, 0) 22%),
+    linear-gradient(
+      90deg,
+      rgba(20, 24, 15, 0.6) 0%,
+      rgba(20, 24, 15, 0.2) 55%,
+      rgba(20, 24, 15, 0.1) 100%
+    );
+  pointer-events: none;
+}
+
+.copy {
+  position: absolute;
+  z-index: 2;
+  left: clamp(20px, 2.6vw, 36px);
+  top: 50%;
+  transform: translateY(-38%);
+  max-width: min(780px, 90%);
+}
+
+.copy h1 {
+  font-size: clamp(40px, 5.6vw, 86px);
+}
+
+.copy p {
+  margin-top: 0.2em;
+  font-size: clamp(30px, 3.5vw, 52px);
+}
+
+.copy :global(.btn) {
+  margin-top: clamp(20px, 3vh, 36px);
+}
+
+.cue {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Original: telefonda sarlavha 3 qatorga bo'linadi, "scroll down" yo'q */
+@media (max-width: 767px) {
+  .copy h1 {
+    font-size: clamp(38px, 11vw, 56px);
+  }
+  .cue {
+    display: none;
+  }
+}

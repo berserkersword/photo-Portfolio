@@ -1,0 +1,104 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 72px 88px 96px;
+  background: rgba(20, 24, 15, 0.97);
+  color: var(--cream-light);
+  animation: fade 0.35s ease;
+}
+
+/* Rasm o'z formatida ekranga sig'adi */
+.frame {
+  position: relative;
+  width: min(calc(100vw - 176px), calc((100vh - 168px) * var(--r)));
+  aspect-ratio: var(--r);
+  background: #111;
+}
+
+.img {
+  object-fit: contain;
+  animation: fade 0.4s ease;
+}
+
+.cap {
+  position: absolute;
+  bottom: 26px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 24px;
+}
+
+.cap small {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+.btn {
+  position: absolute;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(252, 246, 235, 0.5);
+  border-radius: 50%;
+  color: var(--cream-light);
+  font-size: 18px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: rgba(252, 246, 235, 0.12);
+}
+
+.close {
+  top: 20px;
+  right: 20px;
+}
+
+.prev,
+.next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prev {
+  left: 20px;
+}
+
+.next {
+  right: 20px;
+}
+
+@media (max-width: 767px) {
+  .overlay {
+    padding: 72px 12px 130px;
+  }
+  .frame {
+    width: min(calc(100vw - 24px), calc((100vh - 210px) * var(--r)));
+  }
+  .prev,
+  .next {
+    top: auto;
+    bottom: 80px;
+    transform: none;
+  }
+  .cap {
+    bottom: 22px;
+    font-size: 20px;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
