@@ -7,12 +7,14 @@ export const withTransform = (url: string, tr: string) =>
   isImageKit(url) ? `${url}${url.includes("?") ? "&" : "?"}tr=${tr}` : url;
 
 /**
- * ImageKit adaptiv oqim (HLS) manzili — video-brief'dagi bilan bir xil.
- * /ik-master.m3u8 query'dan OLDIN qo'shilishi kerak.
+ * ImageKit adaptiv oqim (HLS) manzili. /ik-master.m3u8 query'dan OLDIN qo'shiladi.
+ * sr-… raqamlari videoning UZUN tomoni bo'yicha: vertikal 1080×1920 video uchun
+ * "1080" atigi 608×1080 bo'ladi, shuning uchun 1440 va 2160 ham kerak —
+ * 2160 asl 1080×1920 ni beradi (ImageKit asl o'lchamdan kattalashtirmaydi).
  */
 export const hlsUrl = (url: string) => {
   const [base] = url.split("?");
-  return `${base}/ik-master.m3u8?tr=sr-240_360_480_720_1080`;
+  return `${base}/ik-master.m3u8?tr=sr-360_480_720_1080_1440_2160`;
 };
 
 /** Hover-preview uchun yengil nusxa (640px balandlik, past sifat) */
